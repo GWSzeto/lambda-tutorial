@@ -19,8 +19,7 @@
   "homepage": "https://github.com/GWSzeto/lambda-tutorial#readme",
   "dependencies": {
     "@react-pdf/renderer": "^1.6.12",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react": "^16.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

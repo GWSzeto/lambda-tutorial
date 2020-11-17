@@ -6,29 +6,26 @@ require("@babel/register")({
 const ReactPDF = require('@react-pdf/renderer');
 const { TestPdf } = require('./pdfs/testPdf');
 
-// exports.handler = async (event) => {
-//     let greeting = `Good ${time}, ${name} of ${city}.`;
-//     if (day) greeting += ` Happy ${day}!`;
+exports.handler = async (event) => {
+		const greeting = "Heyooo world"
 
-//     let responseBody = {
-//         message: greeting,
-//         input: event
-//     };
+    let responseBody = {
+        message: greeting,
+        input: event
+    };
     
-//     let response = {
-//         statusCode: responseCode,
-//         headers: {
-//             "x-custom-header" : "my custom header value"
-//         },
-//         body: JSON.stringify(responseBody)
-//     };
-//     return response;
-// };
+    let response = {
+        statusCode: 200,
+        headers: {
+            "x-custom-header" : "my custom header value"
+        },
+        body: JSON.stringify(responseBody)
+    };
+    return response;
+};
 
-const handler = async (event) => {
-	ReactPDF.render(TestPdf, `./test.pdf`);
-}
+// const handler = async (event) => {
+// 	ReactPDF.render(TestPdf, `./test.pdf`);
+// }
 
-handler();
-
-exports.handler = handler;
+// exports.handler = handler;
