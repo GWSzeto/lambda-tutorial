@@ -24,8 +24,6 @@ exports.handler = async (event) => {
     return response;
 };
 
-handler()
-
 // const handler = async (event) => {
 // 	ReactPDF.render(TestPdf, `./test.pdf`);
 // }
