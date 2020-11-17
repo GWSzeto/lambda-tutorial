@@ -3,10 +3,11 @@ require("@babel/register")({
 	presets: ["@babel/preset-env", "@babel/preset-react"]
 });
 
-const ReactPDF = require('@react-pdf/renderer');
-const { TestPdf } = require('./pdfs/testPdf');
+// const ReactPDF = require('@react-pdf/renderer');
+// const { TestPdf } = require('./pdfs/testPdf');
 
-exports.handler = async (event) => {
+// exports.handler = async (event) => {
+const handler = async (event) => {
 		const greeting = "Heyooo world"
 
     let responseBody = {
@@ -23,6 +24,8 @@ exports.handler = async (event) => {
     };
     return response;
 };
+
+handler()
 
 // const handler = async (event) => {
 // 	ReactPDF.render(TestPdf, `./test.pdf`);
