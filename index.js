@@ -6,8 +6,7 @@ require("@babel/register")({
 // const ReactPDF = require('@react-pdf/renderer');
 // const { TestPdf } = require('./pdfs/testPdf');
 
-// exports.handler = async (event) => {
-const handler = async (event) => {
+exports.handler = async (event) => {
 		const greeting = "Heyooo world"
 
     let responseBody = {
