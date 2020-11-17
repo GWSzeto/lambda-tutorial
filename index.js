@@ -1,28 +1,27 @@
 'use strict';
-// require("@babel/register")({
-// 	presets: ["@babel/preset-env", "@babel/preset-react"]
-// });
+require("@babel/register")({
+	presets: ["@babel/preset-env", "@babel/preset-react"]
+});
 
 const ReactPDF = require('@react-pdf/renderer');
-// const { TestPdf } = require('./pdfs/testPdf');
+const { TestPdf } = require('./pdfs/testPdf');
 
 exports.handler = async (event) => {
-	console.log("Hello World!")
-		// const greeting = "Heyooo world"
+		const greeting = "Heyooo world"
 
-    // let responseBody = {
-    //     message: greeting,
-    //     input: event
-    // };
+    let responseBody = {
+        message: greeting,
+        input: event
+    };
     
-    // let response = {
-    //     statusCode: 200,
-    //     headers: {
-    //         "x-custom-header" : "my custom header value"
-    //     },
-    //     body: JSON.stringify(responseBody)
-    // };
-    // return response;
+    let response = {
+        statusCode: 200,
+        headers: {
+            "x-custom-header" : "my custom header value"
+        },
+        body: JSON.stringify(responseBody)
+    };
+    return response;
 };
 
 // const handler = async (event) => {
