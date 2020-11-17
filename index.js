@@ -3,7 +3,7 @@ require("@babel/register")({
 	presets: ["@babel/preset-env", "@babel/preset-react"]
 });
 
-// const ReactPDF = require('@react-pdf/renderer');
+const ReactPDF = require('@react-pdf/renderer');
 // const { TestPdf } = require('./pdfs/testPdf');
 
 exports.handler = async (event) => {
