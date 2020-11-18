@@ -8,7 +8,6 @@ const { Pool } = require('pg')
 const ReactPDF = require('@react-pdf/renderer');
 const { TestPdf } = require('./pdfs/testPdf');
 
-console.log("user: ", process.env.USERNAME)
 const pool = new Pool({
 	host: process.env.HOST,
 	database: process.env.DATABASE,
@@ -34,8 +33,6 @@ const handler = async (event) => {
 	};
 	return response;
 };
-
-handler()
 
 exports.handler = handler;
 
