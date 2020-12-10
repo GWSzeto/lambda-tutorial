@@ -1,43 +1,36 @@
 'use strict';
 require('dotenv').config()
 require("@babel/register")({
-	presets: ["@babel/preset-env", "@babel/preset-react"]
+	presets: ["@babel/preset-env"]
 });
-const { Pool } = require('pg')
+require("regenerator-runtime/runtime");
 
-const ReactPDF = require('@react-pdf/renderer');
-const { TestPdf } = require('./pdfs/testPdf');
+const generatePdf = require('./pdfs')
 
-const pool = new Pool({
-	host: process.env.HOST,
-	database: process.env.DATABASE,
-	user: process.env.USERNAME,
-	password: process.env.PASSWORD,
-	port: process.env.PORT,
-})
-
+// follow this guide for getting the body params properly, the api gateway and all is already set up
+// so don't worry about that
+// https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html
 const handler = async (event) => {
-	const { rows } = await pool.query("SELECT * FROM patient WHERE first_name = 'asd'");
+	const {
+		patientId,
+		appointmentId,
+		appointmentType,
+	} = event.body
+	await generatePdf[appointmentType](patientId, appointmentId)
 
-	let responseBody = {
-		message: rows,
-		input: event
-	};
+	// let responseBody = {
+	// 	message: rows,
+	// 	input: event
+	// };
 	
-	let response = {
-		statusCode: 200,
-		headers: {
-				"x-custom-header" : "my custom header value"
-		},
-		body: JSON.stringify(responseBody)
-	};
-	return response;
+	// let response = {
+	// 	statusCode: 200,
+	// 	headers: {
+	// 			"x-custom-header" : "my custom header value"
+	// 	},
+	// 	body: JSON.stringify(responseBody)
+	// };
+	// return response;
 };
 
 exports.handler = handler;
-
-// const handler = async (event) => {
-// 	ReactPDF.render(TestPdf, `./test.pdf`);
-// }
-
-// exports.handler = handler;

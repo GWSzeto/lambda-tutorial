@@ -19,7 +19,9 @@
   "homepage": "https://github.com/GWSzeto/lambda-tutorial#readme",
   "dependencies": {
     "@react-pdf/renderer": "^1.6.12",
+    "aws-sdk": "^2.807.0",
     "dotenv": "^8.2.0",
+    "pdffiller": "^0.0.11",
     "pg": "^8.5.1",
     "react": "^16.14.0"
   },
@@ -27,6 +29,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
-    "@babel/register": "^7.12.1"
+    "@babel/register": "^7.12.1",
+    "regenerator-runtime": "^0.13.7"
   }
 }
